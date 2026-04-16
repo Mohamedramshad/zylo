@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+    <!-- ==================== CHARACTER & VIEWPORT ==================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#0a1a3c">
+    
+    <!-- ==================== CORE SEO ==================== -->
+    <title>ERP & Software Services Bahrain | Zylo Tech GCC Solutions</title>
+    <meta name="description" content="Professional ERP implementation, custom software development, website development & application development services across Bahrain, Saudi Arabia, UAE, Qatar, Oman, Kuwait.">
+    
+    <!-- ==================== CSS & FONTS ==================== -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --primary-blue: #0a1a3c;
+            --secondary-blue: #1e40af;
+            --accent-blue: #3b82f6;
+            --gradient-start: #0a1a3c;
+            --gradient-end: #1e40af;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+        }
+        
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* ==================== CUSTOM CLASSES ==================== */
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .animate-scale-in {
+            opacity: 0;
+            animation: scaleIn 0.6s ease forwards;
+        }
+        
+        .animate-slide-left {
+            opacity: 0;
+            animation: slideInLeft 0.8s ease forwards;
+        }
+        
+        .animate-slide-right {
+            opacity: 0;
+            animation: slideInRight 0.8s ease forwards;
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        .animate-gradient-shift {
+            background: linear-gradient(-45deg, #0a1a3c, #1e40af, #3b82f6, #60a5fa);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
+        
+        /* ==================== SERVICE CARDS ==================== */
+        .service-card {
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* ==================== NAVIGATION ==================== */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* ==================== HERO SECTION ==================== */
+        .hero-section {
+            background: linear-gradient(135deg, 
+                rgba(10, 26, 60, 0.95) 0%, 
+                rgba(30, 64, 175, 0.9) 50%, 
+                rgba(59, 130, 246, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(96, 165, 250, 0.4) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(147, 197, 253, 0.3) 0%, transparent 50%);
+            animation: gradient-shift 8s ease infinite;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* ==================== TAB STYLES ==================== */
+        .service-tab {
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .service-tab:hover::before {
+            left: 100%;
+        }
+        
+        .service-tab.active {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            color: white;
+            border-color: #3b82f6;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .service-tab:hover:not(.active) {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.05));
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* ==================== STATS COUNTER ==================== */
+        .stat-counter {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        /* ==================== BUTTONS ==================== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* ==================== SECTION STYLES ==================== */
+        .section-padding {
+            padding: clamp(5rem, 10vw, 8rem) 0;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 clamp(1rem, 5vw, 2rem);
+        }
+        
+        /* ==================== SUB-SERVICE CARDS ==================== */
+        .sub-service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .sub-service-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sub-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .sub-service-card:hover::before {
+            opacity: 1;
+        }
+        
+        .sub-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .sub-service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            transition: all 0.4s ease;
+        }
+        
+        .sub-service-card:hover .sub-service-icon {
+            transform: scale(1.1) rotate(360deg);
+            background: linear-gradient(135deg, #60a5fa, #93c5fd);
+        }
+        
+        /* ==================== PROCESS STEPS ==================== */
+        .process-step {
+            position: relative;
+            padding-left: 5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .process-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* ==================== FAQ STYLES ==================== */
+        .faq-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.05));
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, margin-top 0.5s ease;
+            margin-top: 0;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            margin-top: 1.5rem;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: clamp(3rem, 8vw, 5rem) 0;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .stat-counter {
+                font-size: 3rem;
+            }
+            
+            .hero-section {
+                background-attachment: scroll;
+                min-height: 80vh;
+            }
+        }
+        
+        /* ==================== CUSTOM SCROLLBAR ==================== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-gradient-to-b from-gray-50 via-white to-gray-50">
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <div class="container">
+            <div class="flex justify-between items-center py-5">
+                <!-- Animated Logo -->
+                <a href="/" class="flex items-center space-x-3 group" aria-label="Zylo Tech Home">
+                    <div class="relative">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center animate-pulse-glow">
+                            <i class="fas fa-cube text-white text-xl group-hover:rotate-180 transition-transform duration-500"></i>
+                        </div>
+                        <div class="absolute -inset-2 bg-blue-500/20 rounded-xl blur-xl animate-pulse"></div>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold text-gray-900">Zylo</span>
+                        <span class="text-xs bg-gradient-to-r from-blue-600 to-blue-700 text-white px-2 py-1 rounded-full font-semibold ml-2">Tech</span>
+                        <span class="block text-xs text-gray-500 font-medium mt-1">ERP Services Bahrain</span>
+                    </div>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="/" class="text-gray-700 hover:text-blue-600 font-medium transition-colors group relative">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="/services" class="text-blue-600 font-medium relative group">
+                        Services
+                        <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600"></span>
+                    </a>
+                    <a href="/solutions" class="text-gray-700 hover:text-blue-600 font-medium transition-colors group relative">
+                        Solutions
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="/industries" class="text-gray-700 hover:text-blue-600 font-medium transition-colors group relative">
+                        Industries
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="/contact" class="text-gray-700 hover:text-blue-600 font-medium transition-colors group relative">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="tel:+97337975767" class="btn-primary">
+                        <i class="fas fa-phone-alt mr-2"></i> Call Bahrain
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="lg:hidden text-gray-700 text-2xl p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section" aria-labelledby="services-hero-heading">
+        <div class="floating-elements">
+            <div class="floating-element w-16 h-16 -top-8 -left-8" style="animation-delay: 0s;">
+                <i class="fas fa-cogs text-blue-300 text-xl"></i>
+            </div>
+            <div class="floating-element w-20 h-20 top-1/4 right-10" style="animation-delay: 1s;">
+                <i class="fas fa-code text-blue-300 text-2xl"></i>
+            </div>
+            <div class="floating-element w-12 h-12 bottom-1/4 left-1/4" style="animation-delay: 2s;">
+                <i class="fas fa-globe text-blue-300 text-lg"></i>
+            </div>
+            <div class="floating-element w-14 h-14 bottom-20 right-1/4" style="animation-delay: 3s;">
+                <i class="fas fa-mobile-alt text-blue-300 text-xl"></i>
+            </div>
+        </div>
+        
+        <div class="container relative z-10">
+            <div class="max-w-5xl mx-auto text-center animate-fade-in-up">
+                <!-- Geo Badge with Animation -->
+                <div class="inline-flex items-center px-6 py-3 bg-white/10 backdrop-blur-md rounded-full font-semibold text-white text-sm mb-10 border border-white/20 animate-scale-in">
+                    <div class="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                    <span>Serving GCC Since 2010 • Bahrain HQ</span>
+                </div>
+                
+                <!-- Main Heading with Typing Effect -->
+                <h1 id="services-hero-heading" class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+                    <span class="block">Transform Your Business</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300 animate-gradient-shift">
+                        With Expert Solutions
+                    </span>
+                </h1>
+                
+                <!-- Animated Description -->
+                <p class="text-xl md:text-2xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.2s;">
+                    Professional ERP implementation, custom software development, website development & application solutions tailored for GCC businesses.
+                </p>
+                
+                <!-- Animated Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 animate-scale-in" style="animation-delay: 0.3s;">
+                        <div class="stat-counter mb-2" data-target="200">0</div>
+                        <div class="text-blue-200 text-sm font-medium">Projects Delivered</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 animate-scale-in" style="animation-delay: 0.4s;">
+                        <div class="stat-counter mb-2" data-target="15">0</div>
+                        <div class="text-blue-200 text-sm font-medium">Years Experience</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 animate-scale-in" style="animation-delay: 0.5s;">
+                        <div class="stat-counter mb-2" data-target="50">0</div>
+                        <div class="text-blue-200 text-sm font-medium">Expert Team</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 animate-scale-in" style="animation-delay: 0.6s;">
+                        <div class="stat-counter mb-2" data-target="6">0</div>
+                        <div class="text-blue-200 text-sm font-medium">GCC Countries</div>
+                    </div>
+                </div>
+                
+                <!-- Animated CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up" style="animation-delay: 0.7s;">
+                    <a href="#contact" class="btn-primary group">
+                        <i class="fas fa-calendar-check mr-3 group-hover:scale-110 transition-transform"></i>
+                        Get Free Consultation
+                    </a>
+                    <a href="tel:+97337975767" class="px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-2xl hover:bg-white/20 transition-all duration-300 border border-white/30 text-center group">
+                        <i class="fas fa-phone-alt mr-3 group-hover:scale-110 transition-transform"></i>
+                        Call +973 3797 5767
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICE CATEGORIES ==================== -->
+    <section class="section-padding bg-gradient-to-b from-white to-gray-50" aria-labelledby="categories-heading">
+        <div class="container">
+            <!-- Section Header with Animation -->
+            <div class="text-center mb-20 animate-fade-in-up">
+                <div class="inline-block mb-6">
+                    <span class="text-sm font-semibold text-blue-600 uppercase tracking-wider">Our Expertise</span>
+                    <div class="h-1 w-20 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mt-2 rounded-full"></div>
+                </div>
+                <h2 id="categories-heading" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Comprehensive <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Digital Solutions</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Specialized services designed for the GCC market with Arabic support and local compliance.
+                </p>
+            </div>
+            
+            <!-- Animated Service Tabs -->
+            <div class="flex flex-wrap justify-center gap-4 mb-16 animate-fade-in-up" style="animation-delay: 0.2s;">
+                <button class="service-tab active group" data-category="erp">
+                    <i class="fas fa-cogs mr-3 group-hover:rotate-180 transition-transform duration-500"></i>
+                    ERP Implementation
+                </button>
+                <button class="service-tab group" data-category="custom">
+                    <i class="fas fa-code mr-3 group-hover:rotate-180 transition-transform duration-500"></i>
+                    Custom Software Development
+                </button>
+            </div>
+            
+            <!-- ERP Services Grid with Staggered Animation -->
+            <div id="erp-services" class="service-category active">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Odoo ERP Card -->
+                    <article class="service-card animate-scale-in" style="animation-delay: 0.1s;">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Odoo ERP Implementation</h3>
+                        <p class="text-gray-600 mb-6">
+                            Complete Odoo ERP implementation with Arabic interface, GCC VAT compliance, and localization.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 animate-pulse"></i>
+                                <span class="text-gray-700">Arabic Language Support</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 animate-pulse" style="animation-delay: 0.1s;"></i>
+                                <span class="text-gray-700">GCC VAT Compliance</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 animate-pulse" style="animation-delay: 0.2s;"></i>
+                                <span class="text-gray-700">Multi-company Setup</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-blue-600">Bahrain, KSA, UAE</span>
+                            <a href="#contact" class="text-blue-600 hover:text-blue-700 font-semibold text-sm group">
+                                Get Quote <i class="fas fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Barcoding System Card -->
+                    <article class="service-card animate-scale-in" style="animation-delay: 0.2s;">
+                        <div class="service-icon">
+                            <i class="fas fa-barcode text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Barcoding Systems</h3>
+                        <p class="text-gray-600 mb-6">
+                            Advanced inventory management with barcode technology for retail and logistics across GCC.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 animate-pulse" style="animation-delay: 0.1s;"></i>
+                                <span class="text-gray-700">Real-time Tracking</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 animate-pulse" style="animation-delay: 0.2s;"></i>
+                                <span class="text-gray-700">Mobile Scanning</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 animate-pulse" style="animation-delay: 0.3s;"></i>
+                                <span class="text-gray-700">Arabic Reporting</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-green-600">UAE, Qatar, Oman</span>
+                            <a href="#contact" class="text-green-600 hover:text-green-700 font-semibold text-sm group">
+                                Get Quote <i class="fas fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Van Sale Module Card -->
+                    <article class="service-card animate-scale-in" style="animation-delay: 0.3s;">
+                        <div class="service-icon">
+                            <i class="fas fa-truck text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Van Sale Module</h3>
+                        <p class="text-gray-600 mb-6">
+                            Mobile sales solution for field operations with real-time inventory sync across GCC.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 animate-pulse" style="animation-delay: 0.2s;"></i>
+                                <span class="text-gray-700">Offline Mode</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 animate-pulse" style="animation-delay: 0.3s;"></i>
+                                <span class="text-gray-700">Inventory Sync</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3 animate-pulse" style="animation-delay: 0.4s;"></i>
+                                <span class="text-gray-700">Route Optimization</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-purple-600">Saudi Arabia, UAE, Qatar</span>
+                            <a href="#contact" class="text-purple-600 hover:text-purple-700 font-semibold text-sm group">
+                                Get Quote <i class="fas fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            
+            <!-- Custom Software Development Grid -->
+            <div id="custom-software" class="service-category hidden">
+                <!-- Sub-service Categories with Animation -->
+                <div class="sub-service-grid animate-fade-in-up">
+                    <div class="sub-service-card">
+                        <div class="sub-service-icon">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Software Development</h4>
+                        <p class="text-gray-600 text-sm">Custom solutions for unique business requirements</p>
+                    </div>
+                    
+                    <div class="sub-service-card">
+                        <div class="sub-service-icon">
+                            <i class="fas fa-globe text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Website Development</h4>
+                        <p class="text-gray-600 text-sm">Responsive websites with Arabic/English support</p>
+                    </div>
+                    
+                    <div class="sub-service-card">
+                        <div class="sub-service-icon">
+                            <i class="fas fa-mobile-alt text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Application Development</h4>
+                        <p class="text-gray-600 text-sm">iOS & Android apps for business operations</p>
+                    </div>
+                    
+                    <div class="sub-service-card">
+                        <div class="sub-service-icon">
+                            <i class="fas fa-calculator text-white text-xl"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Custom Accounting Software</h4>
+                        <p class="text-gray-600 text-sm">Tailored accounting solutions for GCC businesses</p>
+                    </div>
+                </div>
+                
+                <!-- Detailed Software Services -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Software Development -->
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-code text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Software Development</h3>
+                        <p class="text-gray-600 mb-6">
+                            Custom software solutions designed specifically for your unique business requirements.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Requirement Analysis</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Custom Workflows</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Arabic Support</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-blue-600">Kuwait, Bahrain, Oman</span>
+                            <a href="#contact" class="text-blue-600 hover:text-blue-700 font-semibold text-sm group">
+                                Get Quote <i class="fas fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Website Development -->
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-globe text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Website Development</h3>
+                        <p class="text-gray-600 mb-6">
+                            Professional, responsive websites that enhance your digital presence across GCC.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Responsive Design</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">E-commerce Ready</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Arabic/English</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-green-600">All GCC Countries</span>
+                            <a href="#contact" class="text-green-600 hover:text-green-700 font-semibold text-sm group">
+                                Get Quote <i class="fas fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Application Development -->
+                    <article class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Application Development</h3>
+                        <p class="text-gray-600 mb-6">
+                            Custom mobile and desktop applications for iOS, Android, and Windows platforms.
+                        </p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">iOS & Android</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Cross-Platform</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                <span class="text-gray-700">Arabic UI/UX</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-semibold text-purple-600">UAE, Qatar, Oman</span>
+                            <a href="#contact" class="text-purple-600 hover:text-purple-700 font-semibold text-sm group">
+                                Get Quote <i class="fas fa-arrow-right ml-1 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DEVELOPMENT PROCESS ==================== -->
+    <section class="section-padding bg-gradient-to-br from-gray-50 to-blue-50" aria-labelledby="process-heading">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="text-center mb-20 animate-fade-in-up">
+                <div class="inline-block mb-6">
+                    <span class="text-sm font-semibold text-blue-600 uppercase tracking-wider">Our Process</span>
+                    <div class="h-1 w-20 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mt-2 rounded-full"></div>
+                </div>
+                <h2 id="process-heading" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Development Journey</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A structured approach to delivering successful software solutions across Bahrain and GCC.
+                </p>
+            </div>
+            
+            <!-- Animated Process Steps -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center animate-scale-in" style="animation-delay: 0.1s;">
+                    <div class="relative mb-8">
+                        <div class="w-24 h-24 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-lg">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-400 rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+                                1
+                            </div>
+                        </div>
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-search text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Discovery & Analysis</h3>
+                    <p class="text-gray-600">
+                        Understanding your business needs and technical requirements in GCC.
+                    </p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center animate-scale-in" style="animation-delay: 0.2s;">
+                    <div class="relative mb-8">
+                        <div class="w-24 h-24 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-lg">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-400 rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+                                2
+                            </div>
+                        </div>
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-pencil-ruler text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Design & Planning</h3>
+                    <p class="text-gray-600">
+                        Creating detailed specifications with Arabic UI/UX considerations.
+                    </p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center animate-scale-in" style="animation-delay: 0.3s;">
+                    <div class="relative mb-8">
+                        <div class="w-24 h-24 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-lg">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-400 rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+                                3
+                            </div>
+                        </div>
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-code text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Development</h3>
+                    <p class="text-gray-600">
+                        Agile development with regular updates and GCC compliance.
+                    </p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="text-center animate-scale-in" style="animation-delay: 0.4s;">
+                    <div class="relative mb-8">
+                        <div class="w-24 h-24 bg-gradient-to-br from-blue-100 to-blue-50 rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-lg">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-400 rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg">
+                                4
+                            </div>
+                        </div>
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-rocket text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Deployment</h3>
+                    <p class="text-gray-600">
+                        Smooth implementation, training, and ongoing support.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ SECTION ==================== -->
+    <section class="section-padding bg-white" aria-labelledby="faq-heading">
+        <div class="container max-w-4xl">
+            <!-- Section Header -->
+            <div class="text-center mb-16 animate-fade-in-up">
+                <div class="inline-block mb-6">
+                    <span class="text-sm font-semibold text-blue-600 uppercase tracking-wider">FAQ</span>
+                    <div class="h-1 w-20 bg-gradient-to-r from-blue-600 to-blue-400 mx-auto mt-2 rounded-full"></div>
+                </div>
+                <h2 id="faq-heading" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    Frequently Asked <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">Questions</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Common questions about our ERP and software development services.
+                </p>
+            </div>
+            
+            <!-- Animated FAQ Items -->
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <div class="faq-item animate-scale-in" style="animation-delay: 0.1s;">
+                    <div class="faq-question">
+                        <span>What software development services do you offer?</span>
+                        <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        <p>We offer comprehensive software development services including custom software development, website development, application development (iOS/Android), custom accounting software, mobile billing software, and business process automation. All services include Arabic language support and GCC compliance.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="faq-item animate-scale-in" style="animation-delay: 0.2s;">
+                    <div class="faq-question">
+                        <span>Do you develop custom accounting software for GCC businesses?</span>
+                        <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        <p>Yes, we specialize in developing custom accounting software tailored for GCC businesses. Our solutions include GCC VAT compliance, Arabic invoicing templates, multi-currency support, bank integration, and localization for each GCC country's specific requirements.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-item animate-scale-in" style="animation-delay: 0.3s;">
+                    <div class="faq-question">
+                        <span>What is your development process?</span>
+                        <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        <p>Our development process includes requirement analysis, design & planning, development, testing (including Arabic UI testing), deployment, and ongoing support. We follow agile methodology with regular updates and client feedback sessions.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-item animate-scale-in" style="animation-delay: 0.4s;">
+                    <div class="faq-question">
+                        <span>Do you provide Arabic language support in software?</span>
+                        <i class="fas fa-chevron-down text-blue-600 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        <p>Yes, all our software solutions include full Arabic language support including interface, reports, invoices, receipts, and documentation. We also provide right-to-left (RTL) layout support and Arabic UI/UX design for optimal user experience in the Middle East.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section class="section-padding animate-gradient-shift" aria-labelledby="cta-heading">
+        <div class="container">
+            <div class="max-w-5xl mx-auto text-center text-white animate-fade-in-up">
+                <h2 id="cta-heading" class="text-4xl md:text-5xl font-bold mb-8">
+                    Ready to Transform Your Business?
+                </h2>
+                <p class="text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    Contact our Bahrain-based software experts for a free consultation and discover how our solutions can transform your business across GCC.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="#contact" class="btn-primary group bg-white text-blue-700 hover:bg-gray-100">
+                        <i class="fas fa-calendar-alt mr-3 group-hover:scale-110 transition-transform"></i>
+                        Book Free Consultation
+                    </a>
+                    
+                    <div class="flex flex-col items-center">
+                        <a href="tel:+97337975767" class="text-white text-2xl font-bold hover:text-blue-200 transition-colors group">
+                            <i class="fas fa-phone-alt mr-3 group-hover:scale-110 transition-transform"></i>
+                            +973 3797 5767
+                        </a>
+                        <span class="text-blue-200 text-sm mt-2">Bahrain Headquarters</span>
+                    </div>
+                    
+                    <a href="https://wa.me/97334351010" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="px-8 py-4 bg-green-500 text-white font-semibold rounded-2xl hover:bg-green-600 transition-all duration-300 inline-flex items-center justify-center group border border-green-600">
+                        <i class="fab fa-whatsapp mr-3 group-hover:scale-110 transition-transform"></i>
+                        WhatsApp Expert
+                    </a>
+                </div>
+                
+                <div class="mt-16 pt-8 border-t border-blue-400/30">
+                    <h3 class="text-xl font-bold mb-6">GCC Service Coverage</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <span class="px-5 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">Bahrain (HQ)</span>
+                        <span class="px-5 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">Saudi Arabia</span>
+                        <span class="px-5 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">United Arab Emirates</span>
+                        <span class="px-5 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">Qatar</span>
+                        <span class="px-5 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">Oman</span>
+                        <span class="px-5 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 hover:bg-white/20 transition-colors">Kuwait</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT FORM SECTION ==================== -->
+    <section id="contact" class="section-padding bg-gradient-to-b from-white to-gray-50">
+        <div class="container max-w-4xl">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 animate-scale-in">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-6">Request Software Development Services</h2>
+                    <p class="text-xl text-gray-600">Fill out the form below and our Bahrain team will contact you within 24 hours</p>
+                </div>
+                
+                <form class="space-y-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="animate-slide-left" style="animation-delay: 0.1s;">
+                            <label class="block text-gray-700 font-medium mb-3 text-lg">Full Name *</label>
+                            <input type="text" required class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300" placeholder="Your full name">
+                        </div>
+                        <div class="animate-slide-right" style="animation-delay: 0.2s;">
+                            <label class="block text-gray-700 font-medium mb-3 text-lg">Company Name *</label>
+                            <input type="text" required class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300" placeholder="Your company name">
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="animate-slide-left" style="animation-delay: 0.3s;">
+                            <label class="block text-gray-700 font-medium mb-3 text-lg">Country *</label>
+                            <select required class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300">
+                                <option value="">Select Country</option>
+                                <option value="BH">Bahrain</option>
+                                <option value="SA">Saudi Arabia</option>
+                                <option value="AE">United Arab Emirates</option>
+                                <option value="QA">Qatar</option>
+                                <option value="OM">Oman</option>
+                                <option value="KW">Kuwait</option>
+                            </select>
+                        </div>
+                        <div class="animate-slide-right" style="animation-delay: 0.4s;">
+                            <label class="block text-gray-700 font-medium mb-3 text-lg">Phone Number *</label>
+                            <input type="tel" required class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300" placeholder="+973 XXX XXXX">
+                        </div>
+                    </div>
+                    
+                    <div class="animate-fade-in-up" style="animation-delay: 0.5s;">
+                        <label class="block text-gray-700 font-medium mb-3 text-lg">Email Address *</label>
+                        <input type="email" required class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300" placeholder="your.email@company.com">
+                    </div>
+                    
+                    <div class="animate-fade-in-up" style="animation-delay: 0.6s;">
+                        <label class="block text-gray-700 font-medium mb-3 text-lg">Service Interest *</label>
+                        <select required class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300">
+                            <option value="">Select Service</option>
+                            <option value="erp">Odoo ERP Implementation</option>
+                            <option value="barcoding">Barcoding Systems</option>
+                            <option value="van-sale">Van Sale Module</option>
+                            <option value="software">Software Development</option>
+                            <option value="website">Website Development</option>
+                            <option value="application">Application Development</option>
+                            <option value="accounting">Custom Accounting Software</option>
+                        </select>
+                    </div>
+                    
+                    <div class="animate-fade-in-up" style="animation-delay: 0.7s;">
+                        <label class="block text-gray-700 font-medium mb-3 text-lg">Project Details</label>
+                        <textarea rows="5" class="w-full px-6 py-4 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-300" placeholder="Tell us about your project requirements..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-2xl hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 text-lg animate-fade-in-up" style="animation-delay: 0.8s;">
+                        <i class="fas fa-paper-plane mr-3"></i>
+                        Send Request to Bahrain Office
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ==================== NAVIGATION SCROLL EFFECT ====================
+            const nav = document.getElementById('main-nav');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    nav.classList.add('nav-scrolled');
+                } else {
+                    nav.classList.remove('nav-scrolled');
+                }
+            });
+            
+            // ==================== SERVICE TAB SWITCHING ====================
+            const tabs = document.querySelectorAll('.service-tab');
+            const categories = document.querySelectorAll('.service-category');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const category = this.dataset.category;
+                    
+                    // Update active tab with animation
+                    tabs.forEach(t => {
+                        t.classList.remove('active');
+                        t.style.transform = 'translateY(0)';
+                    });
+                    this.classList.add('active');
+                    this.style.transform = 'translateY(-2px)';
+                    
+                    // Show selected category with fade animation
+                    categories.forEach(cat => {
+                        cat.style.opacity = '0';
+                        cat.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            cat.classList.add('hidden');
+                            cat.classList.remove('active');
+                        }, 300);
+                    });
+                    
+                    setTimeout(() => {
+                        const activeCategory = document.getElementById(`${category}-services`);
+                        if (activeCategory) {
+                            activeCategory.classList.remove('hidden');
+                            activeCategory.classList.add('active');
+                            setTimeout(() => {
+                                activeCategory.style.opacity = '1';
+                                activeCategory.style.transform = 'translateY(0)';
+                                activeCategory.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                            }, 50);
+                        }
+                    }, 300);
+                });
+            });
+            
+            // ==================== FAQ ACCORDION ====================
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(i => {
+                        if (i !== item && i.classList.contains('active')) {
+                            i.classList.remove('active');
+                            const answer = i.querySelector('.faq-answer');
+                            answer.style.maxHeight = '0';
+                            answer.style.marginTop = '0';
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    const answer = item.querySelector('.faq-answer');
+                    if (item.classList.contains('active')) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                        answer.style.marginTop = '1.5rem';
+                    } else {
+                        answer.style.maxHeight = '0';
+                        answer.style.marginTop = '0';
+                    }
+                });
+            });
+            
+            // ==================== STAT COUNTER ANIMATION ====================
+            const counters = document.querySelectorAll('.stat-counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target'), 10);
+                        animateCounter(counter, target);
+                        observer.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            counters.forEach(counter => observer.observe(counter));
+            
+            function animateCounter(element, target) {
+                let current = 0;
+                const increment = target / 100;
+                const duration = 2000;
+                const startTime = performance.now();
+                
+                function updateCounter(timestamp) {
+                    const elapsed = timestamp - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    current = Math.floor(progress * target);
+                    
+                    element.textContent = current;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = target;
+                    }
+                }
+                
+                requestAnimationFrame(updateCounter);
+            }
+            
+            // ==================== FORM HANDLING ====================
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.innerHTML;
+                    const originalWidth = submitBtn.offsetWidth;
+                    
+                    // Set fixed width to prevent button size change
+                    submitBtn.style.width = originalWidth + 'px';
+                    
+                    // Show loading state with animation
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Sending...';
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.8';
+                    
+                    // Simulate API call with animation
+                    setTimeout(() => {
+                        // Success animation
+                        submitBtn.innerHTML = '<i class="fas fa-check mr-3"></i>Message Sent!';
+                        submitBtn.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
+                        
+                        setTimeout(() => {
+                            alert('Thank you! Your service request has been sent to our Bahrain office. We will contact you within 24 hours.');
+                            form.reset();
+                            
+                            // Reset button with animation
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.disabled = false;
+                            submitBtn.style.opacity = '1';
+                            submitBtn.style.background = 'linear-gradient(135deg, #3b82f6, #60a5fa)';
+                            submitBtn.style.width = '';
+                        }, 1000);
+                    }, 2000);
+                });
+            }
+            
+            // ==================== SCROLL ANIMATIONS ====================
+            const animatedElements = document.querySelectorAll('.animate-fade-in-up, .animate-scale-in, .animate-slide-left, .animate-slide-right');
+            const scrollObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const delay = entry.target.style.animationDelay || '0s';
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0) scale(1) translateX(0)';
+                        }, parseFloat(delay) * 1000);
+                        scrollObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                if (el.classList.contains('animate-fade-in-up')) {
+                    el.style.transform = 'translateY(30px)';
+                } else if (el.classList.contains('animate-scale-in')) {
+                    el.style.transform = 'scale(0.9)';
+                } else if (el.classList.contains('animate-slide-left')) {
+                    el.style.transform = 'translateX(-50px)';
+                } else if (el.classList.contains('animate-slide-right')) {
+                    el.style.transform = 'translateX(50px)';
+                }
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                scrollObserver.observe(el);
+            });
+            
+            // ==================== HOVER ANIMATIONS ====================
+            document.querySelectorAll('.service-card, .sub-service-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-15px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+            
+            // ==================== PARALLAX EFFECT ====================
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.floating-element');
+                
+                parallaxElements.forEach((element, index) => {
+                    const speed = 0.1 + (index * 0.05);
+                    const yPos = -(scrolled * speed);
+                    element.style.transform = `translateY(${yPos}px)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

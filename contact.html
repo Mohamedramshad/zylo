@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Hardware Solutions Bahrain | Manama Office Location</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            color: #1f2937;
+            min-height: 100vh;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .floating-contact {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .form-input:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .location-marker {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .business-hours li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .business-hours li:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-list li {
+            position: relative;
+            padding-left: 1.75rem;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        /* Leaflet Map Customization */
+        .leaflet-popup-content-wrapper {
+            border-radius: 0.75rem;
+        }
+        
+        .leaflet-popup-content {
+            margin: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .leaflet-control-zoom {
+            border: none !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            border-radius: 0.5rem !important;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky-header border-b border-gray-200 shadow-sm">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="flex items-center space-x-3">
+                        <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
+                            <i class="fas fa-server text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold text-gray-900">HARDWARE SOLUTIONS</h1>
+                            <p class="text-sm text-gray-600">Bahrain & GCC Business Technology</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 font-medium">
+                        <i class="fas fa-home mr-2"></i> Home
+                    </a>
+                    <a href="products.html" class="text-gray-700 hover:text-blue-600 font-medium">
+                        <i class="fas fa-boxes mr-2"></i> Products
+                    </a>
+                    <a href="contact.html" class="text-blue-600 font-medium">
+                        <i class="fas fa-phone-alt mr-2"></i> Contact
+                    </a>
+                </nav>
+                
+                <!-- Contact Button -->
+                <a href="tel:+97337975767" class="whatsapp-btn px-6 py-3 rounded-lg text-white font-semibold">
+                    <i class="fas fa-phone-alt mr-2"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16 md:py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    <span class="block">Get In Touch</span>
+                    <span class="text-blue-200">With Our Bahrain Team</span>
+                </h2>
+                <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Located in the heart of Manama, we provide hardware solutions and technical support across Bahrain and GCC region.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#contact-form" class="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300">
+                        <i class="fas fa-envelope mr-2"></i> Send Message
+                    </a>
+                    <a href="#map" class="bg-white/20 backdrop-blur-sm px-8 py-3 rounded-xl font-semibold border border-white/30 hover:bg-white/30 transition-all duration-300">
+                        <i class="fas fa-map-marker-alt mr-2"></i> Visit Our Office
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information Cards -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <!-- Phone Card -->
+                <div class="contact-card p-8 text-center">
+                    <div class="contact-icon bg-blue-100 text-blue-600 mx-auto mb-6">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Phone Support</h3>
+                    <p class="text-gray-600 mb-4">Call us for immediate assistance</p>
+                    <a href="tel:+97337975767" class="text-2xl font-bold text-gray-900 hover:text-blue-600 block mb-2">
+                        +973 3797 5767
+                    </a>
+                    <p class="text-sm text-gray-500">Primary Business Line</p>
+                </div>
+                
+                <!-- WhatsApp Card -->
+                <div class="contact-card p-8 text-center">
+                    <div class="contact-icon bg-green-100 text-green-600 mx-auto mb-6">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">WhatsApp Business</h3>
+                    <p class="text-gray-600 mb-4">Quick product inquiries & quotes</p>
+                    <a href="https://wa.me/97334351010" target="_blank" class="text-2xl font-bold text-gray-900 hover:text-green-600 block mb-2">
+                        +973 3435 1010
+                    </a>
+                    <p class="text-sm text-gray-500">Available 24/7</p>
+                </div>
+                
+                <!-- Email Card -->
+                <div class="contact-card p-8 text-center">
+                    <div class="contact-icon bg-red-100 text-red-600 mx-auto mb-6">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Email</h3>
+                    <p class="text-gray-600 mb-4">For quotations & bulk orders</p>
+                    <a href="mailto:sales@hardwaresolutions.com" class="text-xl font-bold text-gray-900 hover:text-red-600 block mb-2">
+                        sales@hardwaresolutions.com
+                    </a>
+                    <p class="text-sm text-gray-500">Support: support@hardwaresolutions.com</p>
+                </div>
+                
+                <!-- Location Card -->
+                <div class="contact-card p-8 text-center">
+                    <div class="contact-icon bg-purple-100 text-purple-600 mx-auto mb-6">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Our Location</h3>
+                    <p class="text-gray-600 mb-4">Visit our office in Manama</p>
+                    <p class="text-lg font-medium text-gray-900 mb-2">Manama, Bahrain</p>
+                    <p class="text-sm text-gray-500">Business Bay Area</p>
+                </div>
+            </div>
+
+            <!-- Map and Contact Form -->
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Map Section -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-map-marker-alt text-blue-600 mr-3"></i>
+                        Our Office Location in Manama
+                    </h3>
+                    
+                    <!-- Map Container -->
+                    <div class="map-container mb-8">
+                        <div id="map"></div>
+                    </div>
+                    
+                    <!-- Location Details -->
+                    <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+                        <h4 class="font-bold text-lg mb-4">Office Details</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-building text-gray-400 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-medium">Hardware Solutions Bahrain</p>
+                                    <p class="text-gray-600">Business Technology Specialists</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-location-dot text-gray-400 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-medium">Manama, Capital Governorate</p>
+                                    <p class="text-gray-600">Business Bay Area, Bahrain</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-gray-400 mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-medium">Business Hours</p>
+                                    <p class="text-gray-600">Sunday - Thursday: 8:00 AM - 6:00 PM</p>
+                                    <p class="text-gray-600">Friday - Saturday: 9:00 AM - 2:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-paper-plane text-blue-600 mr-3"></i>
+                        Send Us a Message
+                    </h3>
+                    
+                    <div class="contact-card p-8">
+                        <form id="contact-form" class="space-y-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-gray-700 mb-2">
+                                        <i class="fas fa-user text-blue-500 mr-2"></i>
+                                        First Name *
+                                    </label>
+                                    <input type="text" id="firstName" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                           placeholder="Your first name">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 mb-2">
+                                        <i class="fas fa-user text-blue-500 mr-2"></i>
+                                        Last Name
+                                    </label>
+                                    <input type="text" id="lastName" 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                           placeholder="Your last name">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">
+                                    <i class="fas fa-phone text-blue-500 mr-2"></i>
+                                    Phone Number *
+                                </label>
+                                <input type="tel" id="phone" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                       placeholder="+973 XXX XXX">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">
+                                    <i class="fas fa-envelope text-blue-500 mr-2"></i>
+                                    Email Address *
+                                </label>
+                                <input type="email" id="email" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                       placeholder="your.email@example.com">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">
+                                    <i class="fas fa-briefcase text-blue-500 mr-2"></i>
+                                    Company
+                                </label>
+                                <input type="text" id="company" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                       placeholder="Your company name">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">
+                                    <i class="fas fa-tag text-blue-500 mr-2"></i>
+                                    Inquiry Type
+                                </label>
+                                <select id="inquiryType" 
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option value="">Select inquiry type</option>
+                                    <option value="product">Product Information</option>
+                                    <option value="quote">Request Quote</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="partnership">Business Partnership</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 mb-2">
+                                    <i class="fas fa-comment-dots text-blue-500 mr-2"></i>
+                                    Message *
+                                </label>
+                                <textarea id="message" rows="5" required 
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-lg form-input focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                          placeholder="Please describe your inquiry..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full whatsapp-btn py-4 rounded-lg text-white font-semibold text-lg">
+                                <i class="fab fa-whatsapp mr-2"></i> Send Message via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Hours & Service Areas -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Business Hours -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-clock text-blue-600 mr-3"></i>
+                        Business Hours
+                    </h3>
+                    <ul class="business-hours">
+                        <li class="flex justify-between">
+                            <span class="font-medium">Sunday - Thursday</span>
+                            <span class="text-blue-600 font-semibold">8:00 AM - 6:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="font-medium">Friday</span>
+                            <span class="text-blue-600 font-semibold">9:00 AM - 2:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="font-medium">Saturday</span>
+                            <span class="text-blue-600 font-semibold">9:00 AM - 2:00 PM</span>
+                        </li>
+                        <li class="pt-4 mt-4 border-t border-gray-200">
+                            <div class="flex items-center text-green-600">
+                                <i class="fas fa-headset mr-3"></i>
+                                <div>
+                                    <p class="font-medium">24/7 Emergency Support</p>
+                                    <p class="text-sm text-gray-600">Available for enterprise clients</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Service Areas -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-globe text-blue-600 mr-3"></i>
+                        Service Areas
+                    </h3>
+                    <p class="text-gray-600 mb-6">We provide hardware solutions and support across the GCC region:</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                            <i class="fas fa-map-pin text-blue-600 mr-3"></i>
+                            <span class="font-medium">Bahrain</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                            <i class="fas fa-map-pin text-blue-600 mr-3"></i>
+                            <span class="font-medium">Saudi Arabia</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                            <i class="fas fa-map-pin text-blue-600 mr-3"></i>
+                            <span class="font-medium">UAE</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                            <i class="fas fa-map-pin text-blue-600 mr-3"></i>
+                            <span class="font-medium">Qatar</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                            <i class="fas fa-map-pin text-blue-600 mr-3"></i>
+                            <span class="font-medium">Oman</span>
+                        </div>
+                        <div class="flex items-center p-3 bg-blue-50 rounded-lg">
+                            <i class="fas fa-map-pin text-blue-600 mr-3"></i>
+                            <span class="font-medium">Kuwait</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Why Choose Us -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-star text-yellow-500 mr-3"></i>
+                        Why Choose Us
+                    </h3>
+                    <ul class="feature-list space-y-4">
+                        <li class="text-gray-700">Local presence in Manama, Bahrain</li>
+                        <li class="text-gray-700">Same-day support in Manama area</li>
+                        <li class="text-gray-700">Genuine products with warranty</li>
+                        <li class="text-gray-700">Professional installation services</li>
+                        <li class="text-gray-700">Bulk order discounts available</li>
+                        <li class="text-gray-700">Custom hardware configurations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-server text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">HARDWARE SOLUTIONS</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Providing reliable hardware solutions for businesses across Bahrain and GCC region since 2010.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="products.html" class="text-gray-400 hover:text-white">Products</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#support" class="text-gray-400 hover:text-white">Technical Support</a></li>
+                        <li><a href="#warranty" class="text-gray-400 hover:text-white">Warranty Information</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Products -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Our Products</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#pos" class="text-gray-400 hover:text-white">POS Systems</a></li>
+                        <li><a href="#printers" class="text-gray-400 hover:text-white">Printers</a></li>
+                        <li><a href="#scanners" class="text-gray-400 hover:text-white">Barcode Scanners</a></li>
+                        <li><a href="#servers" class="text-gray-400 hover:text-white">Servers</a></li>
+                        <li><a href="#desktops" class="text-gray-400 hover:text-white">Desktop Computers</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">Manama, Bahrain</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">+973 3797 5767</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fab fa-whatsapp text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">+973 3435 1010</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope text-gray-400 mt-1 mr-3"></i>
+                            <span class="text-gray-400">sales@hardwaresolutions.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500">
+                <p>&copy; 2025 HARDWARE SOLUTIONS. All rights reserved. | Manama, Bahrain</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/97334351010" 
+       target="_blank"
+       class="fixed bottom-6 right-6 z-50 floating-contact"
+       aria-label="WhatsApp Inquiry">
+        <div class="whatsapp-btn w-14 h-14 rounded-full shadow-lg flex items-center justify-center">
+            <i class="fab fa-whatsapp text-white text-2xl"></i>
+        </div>
+    </a>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- JavaScript -->
+    <script>
+        // Initialize Map
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMap();
+            setupFormSubmission();
+        });
+
+        // Initialize Leaflet Map
+        function initializeMap() {
+            // Manama, Bahrain coordinates (Business Bay area)
+            const manamaCoords = [26.2285, 50.5860];
+            
+            // Create map
+            const map = L.map('map').setView(manamaCoords, 15);
+            
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19,
+            }).addTo(map);
+            
+            // Custom icon
+            const customIcon = L.divIcon({
+                html: '<div class="location-marker"><i class="fas fa-map-marker-alt text-3xl text-red-500"></i></div>',
+                iconSize: [30, 30],
+                className: 'custom-marker'
+            });
+            
+            // Add marker with popup
+            const marker = L.marker(manamaCoords, { icon: customIcon }).addTo(map);
+            
+            marker.bindPopup(`
+                <div class="p-2">
+                    <h3 class="font-bold text-lg">Hardware Solutions Bahrain</h3>
+                    <p class="text-gray-600">📍 Manama, Business Bay Area</p>
+                    <p class="text-sm text-gray-500 mt-2">Our office in the heart of Manama</p>
+                    <div class="mt-3">
+                        <a href="https://maps.google.com/?q=26.2285,50.5860" 
+                           target="_blank"
+                           class="text-blue-600 hover:text-blue-800 text-sm">
+                            <i class="fas fa-directions mr-1"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+            `).openPopup();
+            
+            // Add circle around location
+            L.circle(manamaCoords, {
+                color: '#3b82f6',
+                fillColor: '#93c5fd',
+                fillOpacity: 0.1,
+                radius: 300
+            }).addTo(map);
+        }
+
+        // Setup form submission
+        function setupFormSubmission() {
+            const form = document.getElementById('contact-form');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    phone: document.getElementById('phone').value,
+                    email: document.getElementById('email').value,
+                    company: document.getElementById('company').value,
+                    inquiryType: document.getElementById('inquiryType').value,
+                    message: document.getElementById('message').value
+                };
+                
+                // Validate form
+                if (!formData.firstName || !formData.phone || !formData.email || !formData.message) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                // Prepare WhatsApp message
+                const whatsappMessage = `New Contact Form Submission from Hardware Solutions Website
+
+Contact Information:
+Name: ${formData.firstName} ${formData.lastName}
+Phone: ${formData.phone}
+Email: ${formData.email}
+Company: ${formData.company || 'Not specified'}
+
+Inquiry Type: ${formData.inquiryType || 'Not specified'}
+
+Message:
+${formData.message}
+
+Submitted from: Hardware Solutions Contact Page
+Date: ${new Date().toLocaleDateString()}
+Time: ${new Date().toLocaleTimeString()}`;
+                
+                // Encode for WhatsApp
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                const whatsappURL = `https://wa.me/97334351010?text=${encodedMessage}`;
+                
+                // Open WhatsApp
+                window.open(whatsappURL, '_blank');
+                
+                // Show success message
+                alert('Thank you! Your message has been prepared for WhatsApp. Please send it to contact us.');
+                
+                // Reset form (optional)
+                // form.reset();
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add animation to elements on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe contact cards
+        document.querySelectorAll('.contact-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
